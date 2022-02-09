@@ -1,5 +1,5 @@
 
-DATA_DIR=/Users/pierreleveau/data/litter-challenge-test
+DATA_DIR=$1
 CURR_DIR=$(pwd)
 
 
