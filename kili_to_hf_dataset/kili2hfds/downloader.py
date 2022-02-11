@@ -87,7 +87,12 @@ class Downloader(object):
                     for job in json_response.values():
                         for annotation in job.get("annotations", []):
                             name = annotation["categories"][0]["name"]
-                            category = label_names.index(name)
+                            try:
+                                category = label_names.index(name)
+                            except ValueError:
+                                # skip annotation if label does not exist
+                                pass
+                                    
                             bounding_poly = annotation.get("boundingPoly", [])
                             if len(bounding_poly) < 1:
                                 continue

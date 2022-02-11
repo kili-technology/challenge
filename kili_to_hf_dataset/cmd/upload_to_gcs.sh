@@ -12,6 +12,6 @@ do
     tar -czvf images.tar.gz *.jpg
     rm *.txt
     rm *.jpg
-    gsutil cp -r "*.tar.gz" gs://kili-datasets-public/plastic-detection-in-river/$SPLIT/
+    gsutil cp -r "*.tar.gz" gs://kili-datasets-public/plastic-in-river/$SPLIT/
 done
 cd $CURR_DIR
