@@ -1,0 +1,3 @@
+[submodule "kili_to_hf_dataset/plastic_in_river"]
+	path = kili_to_hf_dataset/plastic_in_river
+	url = https://huggingface.co/datasets/Kili/plastic_in_river
