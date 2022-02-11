@@ -1,3 +1,0 @@
-[submodule "kili_to_hf_dataset/litter-challenge-test"]
-	path = kili_to_hf_dataset/litter-challenge-test
-	url = https://huggingface.co/datasets/PierreLeveau/litter-challenge-test
