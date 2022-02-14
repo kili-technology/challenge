@@ -22,7 +22,7 @@ If this has not been done yet, create the hugging face dataset from the Hugging 
 ### Commands
 Run the following to export the Kili "plastic in river" dataset into the Hugging Face "Kili/plastic_in_river" dataset.
 ```bash
-    bash entrypoint.sh kili2hfds
+    bash entrypoint.sh kili2hfds writable_local_path
 ```
 
 # References
