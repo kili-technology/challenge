@@ -9,10 +9,6 @@ In a virtual environment (Python >= 3.7)
 ```bash
     pip install -r requirements.txt
 ```
-then 
-```bash
-    huggingface-cli login
-```
 
 Also make sure that the environment variable $KILI_USER_API_KEY has been set with your Kili API token.
 
