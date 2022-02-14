@@ -9,9 +9,9 @@ This document shows the steps to train a model on the challenge date and publish
 * The training is logged into [Weights and Biases](https://wandb.ai/pierreleveau/YOLOv5?workspace=user-pierreleveau). The model can be downloaded from the UI when the training is over.
 
 ## Model upload
-* Model is then uploaded manually to the following location:
+* Model is then uploaded manually to the following location through:
 ```
-     'https://storage.googleapis.com/kili-datasets-public/plastic-in-river/model/best.pt'
+     gsutil cp ~/Downloads/best.pt gs://kili-datasets-public/plastic-in-river/model/
 ```
 It will be immediately made available to this [Hugging face space](https://huggingface.co/spaces/Kili/plastic_in_river).
 
