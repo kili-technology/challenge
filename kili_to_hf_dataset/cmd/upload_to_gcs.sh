@@ -1,7 +1,7 @@
 
 DATA_DIR=$1
 CURR_DIR=$(pwd)
-
+VERSION=$(cat VERSION)
 
 for SPLIT in train test validation
 do
@@ -12,6 +12,6 @@ do
     tar -czvf images.tar.gz *.jpg
     rm *.txt
     rm *.jpg
-    gsutil cp -r "*.tar.gz" gs://kili-datasets-public/plastic-in-river/$SPLIT/
+    gsutil cp -r "*.tar.gz" gs://kili-datasets-public/plastic-in-river/v$VERSION/$SPLIT/
 done
 cd $CURR_DIR
