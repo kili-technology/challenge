@@ -10,6 +10,7 @@ case $1 in
     datasets-cli test plastic_in_river/ --save_infos --all_configs && \
     cd plastic_in_river/ && git submodule update --remote && git add dataset_infos.json && git commit -m "Updated from Kili: v$(cat VERSION)" && git push HEAD:main && cd .. && \
     git add VERSION && git commit -m "Dataset updated from Kili: v$(cat VERSION)"
+    rm -r $LOCAL_PATH
     ;;
 
     *)
