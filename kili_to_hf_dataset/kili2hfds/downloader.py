@@ -69,7 +69,7 @@ class Downloader(object):
             split_dest_path = os.path.join(dest_path, name_list)
             os.makedirs(split_dest_path, exist_ok=True)
 
-            for asset in asset_list:
+            for asset in tqdm(asset_list):
                 img_data = requests.get(
                     asset["content"],
                     headers={"Authorization": f"X-API-Key: {self.kili_api_key}",},
@@ -92,7 +92,7 @@ class Downloader(object):
                             except ValueError:
                                 # skip annotation if label does not exist
                                 pass
-                                    
+
                             bounding_poly = annotation.get("boundingPoly", [])
                             if len(bounding_poly) < 1:
                                 continue
