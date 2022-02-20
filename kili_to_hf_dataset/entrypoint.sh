@@ -10,7 +10,7 @@ case $1 in
     bash cmd/upload_to_gcs.sh $LOCAL_PATH && \
     datasets-cli test plastic_in_river/ --save_infos --all_configs && \
     cd plastic_in_river/ && git submodule update --remote && git add dataset_infos.json plastic_in_river.py && git commit -m "Updated from Kili: v$(cat ../VERSION)" && git push origin HEAD:main && cd .. && \
-    git add VERSION && git commit -m "Dataset updated from Kili: v$(cat VERSION)"
+    git add VERSION && git commit -m "Dataset updated from Kili: v$(cat VERSION)" && git push
     ;;
 
     *)
