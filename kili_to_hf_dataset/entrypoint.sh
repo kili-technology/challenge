@@ -3,7 +3,7 @@ case $1 in
 
     kili2hfds)
     LOCAL_PATH=/tmp/kili2hfds/plastic_in_river
-    rm -r $LOCAL_PATH && \
+    rm -rf $LOCAL_PATH && \
     mkdir -p $LOCAL_PATH && \
     PYTHONPATH=$(pwd) python cmd/kili_to_local.py --local-path $LOCAL_PATH && \
     bumpversion --current-version $(cat VERSION) minor VERSION plastic_in_river/plastic_in_river.py && \
