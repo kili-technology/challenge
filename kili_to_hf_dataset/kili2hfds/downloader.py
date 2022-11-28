@@ -1,6 +1,7 @@
 import os
 import math
 from os.path import basename
+import time
 
 from kili.client import Kili
 import requests
@@ -70,13 +71,25 @@ class Downloader(object):
             os.makedirs(split_dest_path, exist_ok=True)
 
             for asset in tqdm(asset_list):
-                img_data = requests.get(
-                    asset["content"],
-                    headers={"Authorization": f"X-API-Key: {self.kili_api_key}",},
-                ).content
-                image_filename = os.path.join(split_dest_path, asset["id"] + ".jpg")
-                with open(image_filename, "wb") as handler:
+                tic = time.time()
+                count_trial = 0
+                while count_trial < 10:
+                    try:
+                        img_data = requests.get(asset['content'], headers={
+                            'Authorization': f'X-API-Key: {self.kili_api_key}',
+                        }).content
+                        break
+                    except:
+                        count_trial += 1
+                        time.sleep(1)
+                if count_trial == 10:
+                    raise Exception("Failed to download asset: {}".format(asset))
+                with open(os.path.join(split_dest_path, asset['id'] + '.jpg'), 'wb') as handler:
                     handler.write(img_data)
+                toc = time.time() - tic
+                throttling_per_call = 60.0 / 125
+                if toc < throttling_per_call:
+                    time.sleep(throttling_per_call - toc)
 
             for asset in asset_list:
                 annotation_filename = os.path.join(
