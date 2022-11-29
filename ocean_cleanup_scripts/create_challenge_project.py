@@ -102,11 +102,11 @@ def main(n,title,local_dataset_dir, api_key=None):
         )
 
         # prioritize assets
-        assets = kili.assets(project_id=project_id)
-        kili.update_properties_in_assets(
-            asset_id_array=[asset['id'] for asset in assets],
-            priorities=[priorities_dict[asset['externalId']] for asset in assets]
-        )
+        # assets = kili.assets(project_id=project_id)
+        # kili.update_properties_in_assets(
+        #     asset_ids=[asset['id'] for asset in assets],
+        #     priorities=[priorities_dict[asset['externalId']] for asset in assets]
+        # )
 
         project_ids.append(project_id)
 
